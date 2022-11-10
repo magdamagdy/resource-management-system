@@ -1,0 +1,28 @@
+2022-11-09 11:55:02,494 WARN [http-listener-1(5)] c.e.r.controller.UserController [UserController.java:32] Posted null value object or null id
+2022-11-09 13:50:36,061 INFO [http-listener-1(1)] c.e.r.controller.ServerController [ServerController.java:42] Internal server error
+2022-11-09 14:02:15,250 INFO [http-listener-1(5)] c.e.r.controller.ServerController [ServerController.java:42] Internal server error
+2022-11-09 14:04:20,167 WARN [http-listener-1(1)] c.e.r.controller.ServerController [ServerController.java:38] Server status is not Active or failed to allocate the a server
+2022-11-09 14:06:50,980 WARN [http-listener-1(4)] c.e.r.controller.ServerController [ServerController.java:38] Server status is not Active or failed to allocate the a server
+2022-11-09 14:06:52,722 WARN [http-listener-1(1)] c.e.r.controller.ServerController [ServerController.java:38] Server status is not Active or failed to allocate the a server
+2022-11-09 14:06:54,342 WARN [http-listener-1(5)] c.e.r.controller.ServerController [ServerController.java:38] Server status is not Active or failed to allocate the a server
+2022-11-09 14:06:55,464 WARN [http-listener-1(2)] c.e.r.controller.ServerController [ServerController.java:38] Server status is not Active or failed to allocate the a server
+2022-11-09 14:06:56,268 WARN [http-listener-1(3)] c.e.r.controller.ServerController [ServerController.java:38] Server status is not Active or failed to allocate the a server
+2022-11-09 14:06:57,054 WARN [http-listener-1(4)] c.e.r.controller.ServerController [ServerController.java:38] Server status is not Active or failed to allocate the a server
+2022-11-09 14:06:57,819 WARN [http-listener-1(1)] c.e.r.controller.ServerController [ServerController.java:38] Server status is not Active or failed to allocate the a server
+2022-11-09 14:46:41,479 WARN [http-listener-1(3)] c.e.r.controller.ServerController [ServerController.java:38] Server status is not Active or failed to allocate the a server
+2022-11-09 14:49:56,263 WARN [http-listener-1(2)] c.e.r.controller.ServerController [ServerController.java:38] Server status is not Active or failed to allocate the a server
+2022-11-09 14:53:11,600 WARN [http-listener-1(2)] c.e.r.controller.ServerController [ServerController.java:38] Server status is not Active or failed to allocate the a server
+2022-11-09 14:59:29,816 WARN [http-listener-1(2)] c.e.r.controller.ServerController [ServerController.java:38] Server status is not Active or failed to allocate the a server
+2022-11-09 15:07:38,226 WARN [http-listener-1(2)] c.e.r.controller.ServerController [ServerController.java:38] Server status is not Active or failed to allocate the a server
+2022-11-09 15:08:30,786 WARN [http-listener-1(1)] c.e.r.controller.ServerController [ServerController.java:38] Server status is not Active or failed to allocate the a server
+2022-11-09 15:08:32,851 WARN [http-listener-1(3)] c.e.r.controller.ServerController [ServerController.java:38] Server status is not Active or failed to allocate the a server
+2022-11-09 15:08:35,030 WARN [http-listener-1(4)] c.e.r.controller.ServerController [ServerController.java:38] Server status is not Active or failed to allocate the a server
+2022-11-09 15:12:03,540 WARN [http-listener-1(5)] c.e.r.controller.ServerController [ServerController.java:38] Server status is not Active or failed to allocate the a server
+2022-11-09 15:12:06,637 WARN [http-listener-1(2)] c.e.r.controller.ServerController [ServerController.java:38] Server status is not Active or failed to allocate the a server
+2022-11-09 15:12:15,046 WARN [http-listener-1(1)] c.e.r.controller.ServerController [ServerController.java:38] Server status is not Active or failed to allocate the a server
+2022-11-09 15:14:26,254 WARN [http-listener-1(2)] c.e.r.controller.ServerController [ServerController.java:38] Server status is not Active or failed to allocate the a server
+2022-11-09 17:00:43,871 WARN [http-listener-1(5)] c.e.r.controller.UserController [UserController.java:53] User object not found when searching by id
+2022-11-09 17:00:51,185 WARN [http-listener-1(4)] c.e.r.controller.UserController [UserController.java:53] User object not found when searching by id
+2022-11-09 17:01:42,305 WARN [http-listener-1(1)] c.e.r.controller.ServerController [ServerController.java:34] Posted null value object or null id
+2022-11-09 17:02:01,320 WARN [http-listener-1(4)] c.e.r.controller.ServerController [ServerController.java:34] Posted null value object or null id
+2022-11-09 17:02:13,489 WARN [http-listener-1(2)] c.e.r.controller.ServerController [ServerController.java:34] Posted null value object or null id
