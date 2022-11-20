@@ -1,5 +1,7 @@
 package com.exalt.resourcemanagementsystem.controller;
 
+import com.exalt.resourcemanagementsystem.exception.NegativeValueException;
+import com.exalt.resourcemanagementsystem.exception.NotFoundException;
 import com.exalt.resourcemanagementsystem.exception.NullValueException;
 import com.exalt.resourcemanagementsystem.exception.ServerDownException;
 import com.exalt.resourcemanagementsystem.models.server.dto.AllocationDto;
@@ -23,7 +25,8 @@ public class ServerController {
 
   private final String nullWarningMsg = "Posted null value object or null id";
   private final String serverDownMsg = "Server status is not Active or failed to allocate the a server";
-
+  private final String userNotFoundMsg = "User not found on searching by id";
+  private final String negValueCapacityMsg = "User entered Negative value capacity for allocation";
   private final String internalServerErrorMsg = "Internal server error";
   /**
    * The Server service.
@@ -42,16 +45,19 @@ public class ServerController {
   public Response allocateServer(AllocationDto allocation) {
     try {
       return Response.ok(serverService.allocateServer(allocation)).build();
-    }
-    catch (NullValueException e) {
+    } catch (NullValueException e) {
       LOGGER.warn(nullWarningMsg);
       return Response.status(400, e.getMessage()).build();
-    }
-    catch (ServerDownException e) {
+    } catch (ServerDownException e) {
       LOGGER.warn(serverDownMsg);
       return Response.status(501, e.getMessage()).build();
-    }
-    catch (Exception e) {
+    } catch (NegativeValueException e) {
+      LOGGER.warn(negValueCapacityMsg);
+      return Response.status(400, e.getMessage()).build();
+    } catch (NotFoundException e) {
+      LOGGER.warn(userNotFoundMsg);
+      return Response.status(404, e.getMessage()).build();
+    } catch (Exception e) {
       LOGGER.info(internalServerErrorMsg);
       return Response.serverError().build();
     }

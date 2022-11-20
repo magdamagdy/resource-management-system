@@ -1,5 +1,7 @@
 package com.exalt.resourcemanagementsystem.service;
 
+import com.exalt.resourcemanagementsystem.exception.NegativeValueException;
+import com.exalt.resourcemanagementsystem.exception.NotFoundException;
 import com.exalt.resourcemanagementsystem.exception.NullValueException;
 import com.exalt.resourcemanagementsystem.exception.ServerDownException;
 import com.exalt.resourcemanagementsystem.models.server.dao.ServerDao;
@@ -27,7 +29,8 @@ public class ServerServiceImpl implements ServerService {
 
   private final String nullValueMsg = "Null object or Null id";
   private final String serverDownMsg = "Server is down";
-
+  private final String userNotFoundMsg = "User Not Found";
+  private final String negValueMsg = "Negative capacity is not allowed";
 
   /**
    * The User repository.
@@ -46,8 +49,7 @@ public class ServerServiceImpl implements ServerService {
    */
   Random rand = new Random();
 
-  @Override
-  public ServerSliceDto serverAllocation(AllocationDto allocation, int targetServerId)
+  private ServerSliceDto serverAllocation(AllocationDto allocation, int targetServerId)
       throws ServerDownException {
     ServerDao targetServer = serverRepository.getServerById(targetServerId);
     //allocate the required capacity by updating the created server
@@ -84,9 +86,16 @@ public class ServerServiceImpl implements ServerService {
 
   @Override
   public ServerSliceDto allocateServer(AllocationDto allocation)
-      throws NullValueException, ServerDownException, InterruptedException {
+      throws NullValueException, ServerDownException, InterruptedException, NegativeValueException, NotFoundException {
     if (allocation.getUserId() == 0 || allocation.getCapacity() == 0) {
       throw new NullValueException(nullValueMsg);
+    }
+    if (allocation.getCapacity() < 0) {
+      throw new NegativeValueException(negValueMsg);
+    }
+    // if user not found
+    if (userRepository.getUserById(allocation.getUserId()) == null) {
+      throw new NotFoundException(userNotFoundMsg);
     }
     /**
      * critical section
@@ -106,11 +115,14 @@ public class ServerServiceImpl implements ServerService {
           }
         }
       }
+      /**
+       * if found server with sufficient capacity
+       */
       if (targetServerId != 0) {
         return serverAllocation(allocation, targetServerId);
       }
       /**
-       * If there is no servers in the database or
+       * If there is no servers in the database (no of servers = 0) or
        * There is no server in the database has the sufficient capacity
        */
       else {
